@@ -1,0 +1,31 @@
+<%- include('../partials/header'); -%>
+
+
+<div class="container my-4">
+    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+          <h1 class="display-4 font-italic">Welcome To WildDaysOut</h1>
+          <p class="lead my-3">View Our Hand-Picked Campgrounds From All Over The India</p>
+          <p class="lead mb-0"><a class="btn btn-lg btn-primary" href="/campgrounds/new" class="text-white font-weight-bold">Add New Campground</a></p>
+        </div>
+      </div>
+    </header>
+    <div class="row " style="display: flex; flex-wrap: wrap;">
+        <% campgrounds.forEach(function(campgrounds){ %>
+        <div class="col-md-4 shadow-lg p-3 rounded">
+            <div style="box-shadow: 0px 0px 10px 0px #007bff;" class="card mb-4">
+                <img class="card-img-right img-thumbnail flex-auto" src="<%= campgrounds.image %>" alt="">
+                <div class="card-body">
+                    <h3 class="card-title text-center"><%= campgrounds.name %></h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a class="btn btn-outline-primary" href="/campgrounds/<%= campgrounds._id %>">More Info</a>
+                        <small class="text-muted bg-light"><%= campgrounds.created.toDateString() %></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+</div>
+
+<%- include('../partials/footer'); -%>
